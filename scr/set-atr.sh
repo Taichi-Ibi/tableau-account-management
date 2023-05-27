@@ -2,11 +2,10 @@
 
 ################################################################################
 # 処理概要:      Tableau DesktopのATRトークンの有効期間を設定する
-# 使用方法:      sudo sh set-atr-token.sh
+# コマンド:      curl -sf https://raw.githubusercontent.com/Taichi-Ibi/tableau-account-management/main/scr/set-atr.sh | sh -s {TABLEAU_VERSION}
 # 作者:          Phil (Taichi Ibi)
 # 作成日時:      2023-05-26
 # TODO:        
-# - インストールされているTableauのversionを取得する
 ################################################################################
 
 # ユーザーに期間を尋ねる
@@ -34,7 +33,6 @@ else
 fi
 
 echo "ATRトークンを${seconds}秒に設定します。"
-cd '/Applications/Tableau Desktop 2023.1.app/Contents/MacOS'
-./atrdiag -setDuration $seconds
-./atrdiag -deleteAllATRs
-open -a "Tableau Desktop 2023.1.app"
+"/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -setDuration $seconds
+"/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -deleteAllATRs
+open -a "Tableau Desktop $1.app"
