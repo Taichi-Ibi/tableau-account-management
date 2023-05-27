@@ -10,16 +10,16 @@
 ################################################################################
 
 # ユーザーに期間を尋ねる
-echo ""
-len=${#$1}
+duration=$2
+len=${#duration}
 
 if [[ $len -eq 0 || $len -eq 1 ]] ; then
     # 文字数が1文字以下だったら最小値を設定
     seconds=14400
 else
     # 2文字以上の場合は単位を判別して秒数に変換する
-    unit="${$1: -1}"
-    seconds=${$1/%?/}
+    unit="${duration: -1}"
+    seconds=${duration/%?/}
     seconds=$(($seconds * 60 * 60))
     if [[ $unit == "h" ]] ; then
         :
