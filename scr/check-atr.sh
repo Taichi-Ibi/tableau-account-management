@@ -8,7 +8,7 @@
 ################################################################################
 
 HOSTNAME=`hostname`
-ATR=`"/Applications/Tableau Desktop "$2".app/Contents/MacOS/atrdiag" | sed -n "3, 8p"`
+ATR=`"/Applications/Tableau Desktop "$2".app/Contents/MacOS/atrdiag" | sed -n "4, 7p"`
 MESSAGE=$HOSTNAME"\n"$ATR
 MESSAGE=$(echo "$MESSAGE" | tr -s '\n')
 echo "$MESSAGE"
