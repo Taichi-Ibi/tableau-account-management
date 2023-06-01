@@ -10,7 +10,7 @@
 ################################################################################
 
 # ユーザーに期間を尋ねる
-duration=$1
+duration=$2
 len=${#duration}
 
 if [[ $len -eq 0 || $len -eq 1 ]] ; then
@@ -33,6 +33,6 @@ else
 fi
 
 echo "ATRトークンを${seconds}秒に設定します。"
-"/Applications/Tableau Desktop "$2".app/Contents/MacOS/atrdiag" -setDuration $seconds
-"/Applications/Tableau Desktop "$2".app/Contents/MacOS/atrdiag" -deleteAllATRs
-open -a "Tableau Desktop $2.app"
+"/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -setDuration $seconds
+"/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -deleteAllATRs
+open -a "Tableau Desktop $1.app"
