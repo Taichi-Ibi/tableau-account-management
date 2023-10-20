@@ -14,7 +14,7 @@ duration=$2
 len=${#duration}
 
 if [[ $len -eq 0 || $len -eq 1 ]] ; then
-    # 文字数が1文字以下だったら最小値を設定
+    # 文字数が1文字以下だったら最小値（4時間）を設定
     seconds=14400
 else
     # 2文字以上の場合は単位を判別して秒数に変換する
@@ -33,6 +33,6 @@ else
 fi
 
 echo "ATRトークンを${seconds}秒に設定します。"
-"/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -setDuration $seconds
-"/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -deleteAllATRs
+sudo "/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -deleteAllATRs
+sudo "/Applications/Tableau Desktop "$1".app/Contents/MacOS/atrdiag" -setDuration $seconds
 open -a "Tableau Desktop $1.app"
